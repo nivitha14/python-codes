@@ -1,0 +1,38 @@
+Initialize cart_total to 0
+Initialize cart_items to 0
+READ barcode of items:
+ADD items to cart_items
+While cart_items is greater than 0:
+        cart_total=cart_total+cart_item
+
+ADD ITEMS/ REMOVE ITEMS
+
+If customer wants to add item:
+Then READ barcode of item:
+        cart_total=cart_total+cart_item
+If customer wants to remove item:
+        cart_total=cart_total-cart_item
+
+
+DISCOUNT
+
+ If cart_total is greater than 5000 and cart_total is less than 10000:
+Then give discount of 5%
+               cart_total=cart_total-(cart_total*5/100)
+If cart_total is greater than 10000: 
+Then give discount of 10%
+               cart_total=cart_total-(cart_total*10/100)
+
+Display cart_total
+
+PAYMENT
+
+READ card:
+If card_amount is greater than cart_total:
+Then Perform payment
+Print receipt
+If card_amount is less than cart_total:
+Then Display you do not have enough money in your amount
+If customer wants to use credit card:
+Then Perform payment
+Print receipt
