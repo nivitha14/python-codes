@@ -1,0 +1,63 @@
+print("-- CASHLESS SUPERMART --")
+dict_scanned_items= {}
+num=int(input("enter no of items you want to buy: "))
+dict_scanned_items = dict(input().split() for x in range(num))
+for keys in dict_scanned_items:
+     dict_scanned_items[keys]=int(dict_scanned_items[keys])
+
+def returnSum(dict_scanned_items):
+     
+     sum = 0
+     for i in dict_scanned_items.values():
+           sum = sum + i
+      
+     return sum
+ 
+print("CART TOTAL:", returnSum(dict_scanned_items))
+
+#ADDING OR REMOVING ITEMS
+
+choice_add = input("do you want to add any item (yes or no) : ")
+if choice_add == "yes" :
+    added_items= {}
+    n=int(input("enter no of items you want to add: "))
+    added_items = [ map(str, input().split()) for x in range(n)]
+    dict_scanned_items.update(added_items)
+    for keys in dict_scanned_items:
+        dict_scanned_items[keys]=int(dict_scanned_items[keys])
+
+
+print(dict_scanned_items)
+
+choice_remove = input("do you want to remove any item (yes or no) : ")
+if choice_remove == "yes" :
+     remove_ele=input("Enter the item you want to delete:")
+     if remove_ele in dict_scanned_items:
+         del dict_scanned_items[remove_ele]
+     else :
+         print("please enter a valid item from your cart")
+    
+#DISCOUNT
+         
+print("Final Items in your cart:",dict_scanned_items)
+print("CART TOTAL:", returnSum(dict_scanned_items))
+cart_total= returnSum(dict_scanned_items)
+if(cart_total>=1000 & cart_total<=2000):
+    #give discount of 5%
+    cart_total=cart_total-(cart_total*5/100)
+elif(cart_total>2000 & cart_total<=5000):
+    #give discount of 10%
+    cart_total=cart_total-(cart_total*10/100)
+print("CART TOTAL AFTER DISCOUNT:", cart_total)
+
+#PAYMENT
+
+card_amount=float(input("Enter amount in your account:"))
+if(card_amount>=cart_total):
+    print("payment successful")
+elif(card_amount<cart_total):
+    credit_option=input("do you want to use credit option  (yes or no) :")
+    if credit_option == "yes":
+        print("payment successful")
+    else:
+        print("payment unsuccessful")
